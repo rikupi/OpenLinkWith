@@ -28,7 +28,7 @@
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/window_background"
+    android:background="@color/resolver_background"
     android:elevation="8dp"
     android:orientation="vertical"
     app:layout_alwaysShow="true">
@@ -65,7 +65,7 @@
       style="?attr/buttonBarStyle"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:background="@color/window_background"
+      android:background="@color/resolver_background"
       android:gravity="end|center_vertical"
       android:measureWithLargestChild="true"
       android:orientation="horizontal"
@@ -80,6 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
+        android:layout_marginEnd="8dp"
         android:maxLines="2"
         android:minHeight="@dimen/alert_dialog_button_bar_height"
         android:text="@string/activity_resolver_use_once" />
@@ -105,7 +106,7 @@
     android:id="@+id/resolver_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/window_background"
+    android:background="@color/resolver_background"
     android:clipToPadding="false"
     android:divider="@null"
     android:elevation="8dp"

@@ -36,8 +36,6 @@ interface ResolverView {
 
         void onItemClick(DisplayActivityInfo activityInfo);
 
-        void onUnshorten();
-
         void onPackagesChanged();
 
         Listener EMPTY = new Listener() {
@@ -50,10 +48,6 @@ interface ResolverView {
             @Override
             public void onItemClick(DisplayActivityInfo activityInfo) {
                 // no-op
-            }
-
-            @Override public void onUnshorten() {
-
             }
 
             @Override

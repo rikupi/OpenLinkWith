@@ -11,10 +11,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.tasomaniac.openwith.R
 import com.tasomaniac.openwith.data.Analytics
-import com.tasomaniac.openwith.data.prefs.BooleanPreference
-import com.tasomaniac.openwith.data.prefs.TutorialShown
 import com.tasomaniac.openwith.databinding.ActivitySettingsBinding
-import com.tasomaniac.openwith.intro.IntroActivity
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
@@ -23,17 +20,12 @@ class SettingsActivity :
     SharedPreferences.OnSharedPreferenceChangeListener,
     PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
-    @Inject @TutorialShown lateinit var tutorialShown: BooleanPreference
     @Inject lateinit var analytics: Analytics
     @Inject lateinit var sharedPreferences: SharedPreferences
     private lateinit var binding: ActivitySettingsBinding
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (!tutorialShown.get()) {
-            startActivity(IntroActivity.newIntent(this))
-            tutorialShown.set(true)
-        }
 
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)

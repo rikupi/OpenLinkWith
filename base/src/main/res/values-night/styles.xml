@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Dark mode: light icons/text on dark AppBar background -->
+  <style name="ThemeOverlay.OpenWith.ActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    <item name="android:textColorPrimary">@color/oneui_primary_text</item>
+    <item name="colorControlNormal">@color/oneui_primary_text</item>
+  </style>
+
+  <!-- Dark mode: popup menu with light text -->
+  <style name="ThemeOverlay.OpenWith.PopupMenu" parent="ThemeOverlay.AppCompat.Dark" />
+
+</resources>

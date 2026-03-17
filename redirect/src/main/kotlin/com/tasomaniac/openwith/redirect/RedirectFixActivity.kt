@@ -13,18 +13,12 @@ import com.tasomaniac.android.widget.DelayedProgressBar
 import com.tasomaniac.openwith.resolver.ResolverActivity
 import com.tasomaniac.openwith.rx.SchedulingStrategy
 import dagger.android.support.DaggerAppCompatActivity
-import io.reactivex.Maybe
-import io.reactivex.MaybeTransformer
-import io.reactivex.Single
 import io.reactivex.disposables.Disposable
-import okhttp3.HttpUrl
-import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import javax.inject.Inject
 
 class RedirectFixActivity : DaggerAppCompatActivity() {
 
     @Inject lateinit var browserIntentChecker: BrowserIntentChecker
-    @Inject lateinit var redirectFixer: RedirectFixer
     @Inject lateinit var urlFix: UrlFix
     @Inject lateinit var schedulingStrategy: SchedulingStrategy
 
@@ -41,43 +35,18 @@ class RedirectFixActivity : DaggerAppCompatActivity() {
             insets
         }
 
-        // Check for intent extra
-        val unshorten = intent.getBooleanExtra(EXTRA_UNSHORT, false)
-
         val progress = findViewById<DelayedProgressBar>(R.id.resolver_progress)
         progress.show(true)
 
-        val source = Intent(intent).apply {
-            component = null
+        val source = Intent(intent).apply { component = null }
+        val fixedUrl = urlFix.fixUrls(source.dataString ?: "")
+        val resultIntent = source.withUrl(fixedUrl).apply {
+            component = ComponentName(this@RedirectFixActivity, ResolverActivity::class.java)
+            addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT)
+            putExtra(EXTRA_UNSHORT, false)
         }
-        disposable = Single.just(source)
-            .filter { browserIntentChecker.hasOnlyBrowsers(it) }
-            .map { urlFix.fixUrls(it.dataString!!) }
-            .flatMap {
-                Maybe.fromCallable<HttpUrl> { it.toHttpUrlOrNull() }
-            }
-            .compose(if (unshorten) redirectTransformer
-            else MaybeTransformer { source -> source })
-            .map(HttpUrl::toString)
-            .toSingle(source.dataString!!) // fall-back to original data if anything goes wrong
-            .map(urlFix::fixUrls) // fix again after potential redirect
-            .map { source.withUrl(it) }
-            .compose(schedulingStrategy.forSingle())
-            .subscribe { intent ->
-                intent.component = ComponentName(this, ResolverActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT)
-                intent.putExtra(EXTRA_UNSHORT, unshorten)
-                startActivity(intent)
-                finish()
-            }
-    }
-
-    private val redirectTransformer = MaybeTransformer<HttpUrl, HttpUrl> { source ->
-        source.flatMap { httpUrl ->
-            redirectFixer
-                .followRedirects(httpUrl)
-                .toMaybe()
-        }
+        startActivity(resultIntent)
+        finish()
     }
 
     override fun onDestroy() {

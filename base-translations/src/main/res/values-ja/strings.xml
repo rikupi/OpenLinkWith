@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:locale="ja">
   <string name="open_with">開く&#8230;</string>
+  <string name="title_preferred_apps">優先アプリ</string>
   <string name="add_to_homescreen">ホーム画面に追加</string>
   <string name="use_a_different_app">別のアプリの使用</string>
   <string name="activity_resolver_use_once">1回のみ</string>
   <string name="activity_resolver_use_always">常時</string>
-  <string name="which_view_application">Open with</string>
-  <string name="which_view_application_named">Open with %1$s</string>
+  <string name="which_view_application">次のアプリで開く</string>
+  <string name="which_view_application_named">%1$s で開く</string>
   <string name="desc_preferred">以下のリンクをこのアプリで共有したときに直接使われる優先アプリです。\n\n優先アプリを解除するにはタップしてください。</string>
   <string name="desc_preferred_empty">以下のリンクをこのアプリで共有したときに直接使われる優先アプリです。\n\nリンクをこのアプリで共有し、\“常時\” を選択することによって優先アプリを設定できます。</string>
   <string name="title_remove_preferred">優先設定を解除しますか？</string>
@@ -14,7 +15,7 @@
     ]]></string>
   <string name="error_invalid_url">共有されたコンテンツには有効な URL が含まれていません</string>
   <string name="empty_resolver_activity">この URL を扱うアプリが見つかりませんでした</string>
-  <string name="warning_open_link_with_name">Opening link with %s</string>
+  <string name="warning_open_link_with_name">%s でリンクを開いています</string>
   <string name="pref_title_general">一般</string>
   <string name="pref_title_about">紹介</string>
   <string name="pref_summary_about">チュートリアルをもう一度見る</string>
@@ -78,7 +79,7 @@
     <br>
     提供された正規表現ルールに従ってリンクがクリーンアップされます。
   ]]></string>
-  <string name="clean_urls_regex_hint">Regex style rule</string>
+  <string name="clean_urls_regex_hint">正規表現ルール</string>
   <string name="pref_title_feature_caller_app">フォアグラウンドのアプリを検出</string>
   <string name="pref_details_feature_caller_app"><![CDATA[    <strong>警告:</strong> 実験的な機能です!<br>
     <br>

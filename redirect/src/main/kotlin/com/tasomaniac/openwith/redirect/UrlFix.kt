@@ -1,29 +1,17 @@
 package com.tasomaniac.openwith.redirect
 
 import com.tasomaniac.openwith.extensions.extractAmazonASIN
-import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import java.util.regex.Pattern
 import javax.inject.Inject
 
-class UrlFix @Inject constructor(
-    private val cleanUrlsPreferences: CleanUrlsPreferences
-) {
+class UrlFix @Inject constructor() {
 
     fun fixUrls(originalUrl: String): String {
         var url = originalUrl
         for (urlFixer in URL_FIXERS) {
             url = urlFixer.fix(url)
         }
-        return if (cleanUrlsPreferences.isEnabled) url.cleanUpTrackingParams() else url
-    }
-
-    private fun String.cleanUpTrackingParams(): String {
-        val httpUrl = toHttpUrlOrNull() ?: return this
-        val urlBuilder = httpUrl.newBuilder()
-        httpUrl.queryParameterNames
-            .filter { cleanUrlsPreferences.cleanUpRegex.containsMatchIn(it) }
-            .forEach { urlBuilder.removeAllQueryParameters(it) }
-        return urlBuilder.build().toString()
+        return url
     }
 
     private interface Fixer {

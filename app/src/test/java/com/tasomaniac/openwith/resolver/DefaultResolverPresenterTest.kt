@@ -11,7 +11,7 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.reset
-import com.tasomaniac.openwith.R
+import com.tasomaniac.openwith.translations.R
 import com.tasomaniac.openwith.data.PreferredAppDao
 import com.tasomaniac.openwith.resolver.preferred.PreferredResolver
 import com.tasomaniac.openwith.test.testScheduling
@@ -24,7 +24,7 @@ import org.mockito.BDDMockito.then
 
 class DefaultResolverPresenterTest {
 
-    private val view = mock<ResolverView>()
+    private val view = mock<ResolverActivity>()
     private val resources = mock<Resources>()
     private val uri = mock<Uri> {
         on { host } doReturn "host"

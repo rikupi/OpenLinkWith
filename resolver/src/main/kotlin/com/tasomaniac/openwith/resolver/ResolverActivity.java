@@ -16,8 +16,6 @@
 package com.tasomaniac.openwith.resolver;
 
 import android.annotation.SuppressLint;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,11 +24,9 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.StringRes;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -39,8 +35,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.tasomaniac.openwith.HeaderAdapter;
 import com.tasomaniac.openwith.SimpleTextViewHolder;
 import com.tasomaniac.openwith.util.IntentFixer;
-
-import java.util.Objects;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -107,16 +101,6 @@ public class ResolverActivity extends DaggerAppCompatActivity implements
         Intent intent = getIntent();
         TextView urlView = findViewById(R.id.link_url);
         urlView.setText(intent.getDataString());
-
-        boolean alreadyUnshortened = intent.getBooleanExtra("com.tasomaniac.openwith.resolver.UNSHORT", false);
-
-        if (!alreadyUnshortened && Objects.equals(intent.getScheme(), "http") || Objects.equals(intent.getScheme(), "https")) {
-            Button unshorten = findViewById(R.id.button_unshorten);
-            unshorten.setVisibility(View.VISIBLE);
-            unshorten.setOnClickListener((v) -> listener.onUnshorten());
-        }
-
-        findViewById(R.id.button_copy).setOnClickListener(v -> copyToClipboard(intent.getDataString()));
 
         setupList(result, result.getShowExtended());
         setupFilteredItem(result.getFilteredItem());
@@ -242,14 +226,6 @@ public class ResolverActivity extends DaggerAppCompatActivity implements
     @Override
     public void onItemClick(DisplayActivityInfo activityInfo) {
         listener.onItemClick(activityInfo);
-    }
-
-    private void copyToClipboard(String text) {
-        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText("link", text);
-        clipboard.setPrimaryClip(clip);
-
-        Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
     }
 
     @Override

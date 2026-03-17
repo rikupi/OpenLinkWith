@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Dark mode: light icons on dark navigation bar -->
+  <bool name="window_light_nav_bar">false</bool>
+  <!-- Dark mode: light icons on dark status bar -->
+  <bool name="window_light_status_bar">false</bool>
+</resources>

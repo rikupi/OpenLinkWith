@@ -8,13 +8,13 @@ import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.reset
 import com.nhaarman.mockitokotlin2.then
-import com.tasomaniac.openwith.R
+import com.tasomaniac.openwith.translations.R
 import org.junit.Test
 
 class HomeScreenResolverPresenterTest {
 
     private val intentResolver = mock<IntentResolver>()
-    private val view = mock<ResolverView>()
+    private val view = mock<ResolverActivity>()
     private val resources = mock<Resources>()
     private val sourceIntent = mock<Intent>()
     private val navigation = mock<ResolverNavigation>()

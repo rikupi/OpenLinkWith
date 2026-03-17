@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
 import com.tasomaniac.openwith.data.PreferredApp
-import com.tasomaniac.openwith.redirect.RedirectFixActivity
 import com.tasomaniac.openwith.translations.R
 import timber.log.Timber
 import javax.inject.Inject
@@ -107,13 +106,6 @@ internal class DefaultResolverPresenter @Inject constructor(
             } else {
                 startAndPersist(activityInfo, alwaysCheck = false)
             }
-        }
-
-        override fun onUnshorten() {
-            val intent = RedirectFixActivity.createIntent(view, view.intent.dataString ?: throw Error("No data in intent"))
-                .putExtra(RedirectFixActivity.EXTRA_UNSHORT, true)
-            view.startActivity(intent)
-            view.dismiss()
         }
 
         private fun startAndPersist(activityInfo: DisplayActivityInfo, alwaysCheck: Boolean) {

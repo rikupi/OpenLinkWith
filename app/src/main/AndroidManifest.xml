@@ -3,15 +3,6 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:installLocation="auto">
 
-  <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
-  <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
-
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-permission
-    android:name="android.permission.PACKAGE_USAGE_STATS"
-    tools:ignore="ProtectedPermissions" />
-
   <!-- Courtesy of https://github.com/TrianguloY/URLCheck/blob/master/app/src/main/AndroidManifest.xml -->
   <queries>
     <intent>
@@ -137,28 +128,112 @@
       </intent-filter>
     </activity-alias>
 
-    <activity
-      android:name=".homescreen.AddToHomeScreen"
-      android:configChanges="keyboardHidden|orientation|screenLayout"
-      android:documentLaunchMode="never"
-      android:excludeFromRecents="true"
+    <activity-alias
+      android:name=".SocialLinksActivity"
+      android:enabled="true"
       android:exported="true"
-      android:finishOnCloseSystemDialogs="true"
-      android:icon="@mipmap/ic_launcher_bookmark"
-      android:label="@string/add_to_homescreen"
-      android:relinquishTaskIdentity="true"
-      android:theme="@style/Theme.Transparent.NoAnimation"
-      android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+      android:label="@string/open_with"
+      android:targetActivity=".ShareToOpenWith">
 
-      <intent-filter android:label="@string/add_to_homescreen">
-        <action android:name="android.intent.action.SEND" />
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <!-- X / Twitter -->
+        <data android:scheme="https" android:host="x.com" />
+        <data android:scheme="https" android:host="*.x.com" />
+        <data android:scheme="https" android:host="twitter.com" />
+        <data android:scheme="https" android:host="*.twitter.com" />
+
+        <!-- YouTube -->
+        <data android:scheme="https" android:host="youtube.com" />
+        <data android:scheme="https" android:host="*.youtube.com" />
+        <data android:scheme="https" android:host="youtu.be" />
+
+        <!-- Instagram -->
+        <data android:scheme="https" android:host="instagram.com" />
+        <data android:scheme="https" android:host="*.instagram.com" />
+
+        <!-- Reddit -->
+        <data android:scheme="https" android:host="reddit.com" />
+        <data android:scheme="https" android:host="*.reddit.com" />
+        <data android:scheme="https" android:host="redd.it" />
+
+        <!-- TikTok -->
+        <data android:scheme="https" android:host="tiktok.com" />
+        <data android:scheme="https" android:host="*.tiktok.com" />
+
+        <!-- Facebook -->
+        <data android:scheme="https" android:host="facebook.com" />
+        <data android:scheme="https" android:host="*.facebook.com" />
+
+        <!-- LinkedIn -->
+        <data android:scheme="https" android:host="linkedin.com" />
+        <data android:scheme="https" android:host="*.linkedin.com" />
+
+        <!-- GitHub -->
+        <data android:scheme="https" android:host="github.com" />
+        <data android:scheme="https" android:host="*.github.com" />
+
+      </intent-filter>
+    </activity-alias>
+
+    <activity-alias
+      android:name=".MediaLinksActivity"
+      android:enabled="true"
+      android:exported="true"
+      android:label="@string/open_with"
+      android:targetActivity=".ShareToOpenWith">
+
+      <!-- URL + MIME type (scheme と mimeType を組み合わせた形式 - Chmate 等が MIME type を設定する場合) -->
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data android:scheme="https" android:mimeType="video/*" />
+        <data android:scheme="http"  android:mimeType="video/*" />
+        <data android:scheme="https" android:mimeType="audio/*" />
+        <data android:scheme="http"  android:mimeType="audio/*" />
+      </intent-filter>
+
+      <!-- URL path pattern (MIME type が設定されない場合のフォールバック) -->
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data android:scheme="https" android:pathPattern=".*\\.mp4" />
+        <data android:scheme="https" android:pathPattern=".*\\.mkv" />
+        <data android:scheme="https" android:pathPattern=".*\\.webm" />
+        <data android:scheme="https" android:pathPattern=".*\\.mov" />
+        <data android:scheme="https" android:pathPattern=".*\\.mp3" />
+        <data android:scheme="https" android:pathPattern=".*\\.m4a" />
+        <data android:scheme="https" android:pathPattern=".*\\.flac" />
+        <data android:scheme="http"  android:pathPattern=".*\\.mp4" />
+        <data android:scheme="http"  android:pathPattern=".*\\.mkv" />
+        <data android:scheme="http"  android:pathPattern=".*\\.webm" />
+        <data android:scheme="http"  android:pathPattern=".*\\.mp3" />
+        <data android:scheme="http"  android:pathPattern=".*\\.m4a" />
+      </intent-filter>
+
+      <!-- content / file URI (ファイルマネージャー等) -->
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
 
         <category android:name="android.intent.category.DEFAULT" />
 
-        <data android:mimeType="text/plain" />
+        <data android:scheme="content" android:mimeType="video/*" />
+        <data android:scheme="content" android:mimeType="audio/*" />
+        <data android:scheme="file"    android:mimeType="video/*" />
+        <data android:scheme="file"    android:mimeType="audio/*" />
       </intent-filter>
 
-    </activity>
+    </activity-alias>
 
     <activity
       android:name=".redirect.RedirectFixActivity"

@@ -3,7 +3,6 @@ package com.tasomaniac.openwith.settings.advanced.features
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.text.parseAsHtml
 import androidx.core.view.ViewCompat
@@ -12,7 +11,6 @@ import androidx.core.view.updatePadding
 import androidx.preference.Preference
 import com.tasomaniac.openwith.data.Analytics
 import com.tasomaniac.openwith.databinding.ToggleFeatureActivityBinding
-import com.tasomaniac.openwith.settings.advanced.features.custom.view.FeatureToggleCustomView
 import com.tasomaniac.openwith.translations.R.string
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
@@ -23,7 +21,6 @@ class ToggleFeatureActivity : DaggerAppCompatActivity() {
     @Inject lateinit var featureToggler: FeatureToggler
     @Inject lateinit var analytics: Analytics
     @Inject lateinit var sideEffects: Set<@JvmSuppressWildcards FeatureToggleSideEffect>
-    @Inject lateinit var customViews: Map<Feature, @JvmSuppressWildcards FeatureToggleCustomView>
     private lateinit var binding: ToggleFeatureActivityBinding
 
 
@@ -74,12 +71,6 @@ class ToggleFeatureActivity : DaggerAppCompatActivity() {
 
     private fun setupDetails(feature: Feature) {
         binding.featureDetails.text = getString(feature.detailsRes).parseAsHtml()
-        if (feature.imageRes != null) {
-            binding.featureImage.setImageResource(feature.imageRes)
-        } else {
-            binding.featureImage.visibility = View.GONE
-        }
-        customViews[feature]?.bindCustomContent(binding.featureCustomContent)
     }
 
     @StringRes

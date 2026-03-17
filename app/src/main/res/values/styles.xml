@@ -26,6 +26,8 @@
     <item name="preferenceFragmentStyle">@style/PreferenceFragment.OpenWith</item>
     <item name="preferenceStyle">@style/Preference.OpenWith</item>
     <item name="preferenceCategoryStyle">@style/Preference.Category.OpenWith</item>
+    <item name="switchPreferenceCompatStyle">@style/Preference.OpenWith</item>
+    <item name="checkBoxPreferenceStyle">@style/Preference.OpenWith</item>
   </style>
 
   <style name="PreferenceFragment.OpenWith" parent="PreferenceFragment.Material">

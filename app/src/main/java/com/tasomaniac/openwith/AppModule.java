@@ -8,9 +8,6 @@ import android.content.res.Resources;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import androidx.core.content.ContextCompat;
-import com.tasomaniac.openwith.data.prefs.BooleanPreference;
-import com.tasomaniac.openwith.data.prefs.TutorialShown;
-import com.tasomaniac.openwith.data.prefs.UsageAccess;
 import com.tasomaniac.openwith.resolver.IconLoader;
 import com.tasomaniac.openwith.rx.SchedulingStrategy;
 import dagger.Binds;
@@ -18,15 +15,10 @@ import dagger.Module;
 import dagger.Provides;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.Cache;
-import okhttp3.OkHttpClient;
-
 import javax.inject.Singleton;
-import java.io.File;
 
 @Module
 abstract class AppModule {
-    private static final int DISK_CACHE_SIZE = 5 * 1024 * 1024;
 
     @Binds
     abstract Application application(App app);
@@ -63,28 +55,4 @@ abstract class AppModule {
         return new IconLoader(pm, iconDpi);
     }
 
-    @Provides
-    @Singleton
-    @TutorialShown
-    static BooleanPreference provideTutorialShown(SharedPreferences prefs) {
-        return new BooleanPreference(prefs, "pref_tutorial_shown");
-    }
-
-    @Provides
-    @Singleton
-    @UsageAccess
-    static BooleanPreference provideUsageAccess(SharedPreferences prefs) {
-        return new BooleanPreference(prefs, "usage_access");
-    }
-
-    @Provides
-    @Singleton
-    static OkHttpClient provideOkHttpClient(Application app) {
-        File cacheDir = new File(app.getCacheDir(), "http");
-        Cache cache = new Cache(cacheDir, DISK_CACHE_SIZE);
-
-        return new OkHttpClient.Builder()
-                .cache(cache)
-                .build();
-    }
 }

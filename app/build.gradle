@@ -104,16 +104,12 @@ dependencies {
   implementation project(':browser-preferred')
   implementation project(':browser-resolver')
   implementation project(':data')
-  implementation project(':homescreen')
-  implementation project(':intro')
   implementation project(':preferred-apps')
   implementation project(':redirect')
   implementation project(':resolver')
 
   implementation 'androidx.preference:preference-ktx:1.1.1'
   implementation 'androidx.sharetarget:sharetarget:1.2.0-rc01'
-
-  implementation "com.squareup.okhttp3:okhttp:$versions.okHttp"
 
   playImplementation platform('com.google.firebase:firebase-bom:33.14.0')
 

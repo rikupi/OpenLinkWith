@@ -11,6 +11,9 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.10.0'
+}
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -26,9 +29,6 @@ include ':base-translations'
 include ':browser-preferred'
 include ':browser-resolver'
 include ':data'
-include ':homescreen'
-include ':intro'
-include ':intro-lib'
 include ':preferred-apps'
 include ':redirect'
 include ':resolver'

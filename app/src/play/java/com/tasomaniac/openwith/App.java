@@ -1,7 +1,6 @@
 package com.tasomaniac.openwith;
 
 import com.tasomaniac.openwith.settings.NightModePreferences;
-import com.tasomaniac.openwith.settings.rating.AskForRatingCondition;
 
 import javax.inject.Inject;
 
@@ -13,7 +12,6 @@ public class App extends DaggerApplication {
     private AppComponent component;
 
     @Inject NightModePreferences nightModePreferences;
-    @Inject AskForRatingCondition askForRatingCondition;
 
     @Override
     public void onCreate() {
@@ -25,8 +23,6 @@ public class App extends DaggerApplication {
         } else {
             Timber.plant(new CrashReportingTree());
         }
-
-        askForRatingCondition.notifyAppLaunch();
     }
 
     @Override

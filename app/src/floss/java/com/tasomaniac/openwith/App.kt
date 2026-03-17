@@ -5,7 +5,6 @@ import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
 import com.tasomaniac.openwith.settings.NightModePreferences
-import com.tasomaniac.openwith.settings.rating.AskForRatingCondition
 import com.tasomaniac.openwith.translations.R.string
 import dagger.android.support.DaggerApplication
 import timber.log.Timber
@@ -17,16 +16,12 @@ class App : DaggerApplication() {
     @Inject
     lateinit var nightModePreferences: NightModePreferences
 
-    @Inject
-    lateinit var askForRatingCondition: AskForRatingCondition
-
     override fun onCreate() {
         super.onCreate()
         nightModePreferences.updateDefaultNightMode()
         if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
         }
-        askForRatingCondition.notifyAppLaunch()
         createShareShortcut()
     }
 

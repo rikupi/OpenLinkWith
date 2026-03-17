@@ -10,31 +10,8 @@
       android:title="@string/pref_title_open_source" />
 
     <Preference
-      android:key="@string/pref_key_market"
-      android:summary="@string/pref_summary_market"
-      android:title="@string/pref_title_market">
-      <intent
-        android:action="android.intent.action.VIEW"
-        android:data="https://play.google.com/store/apps/dev?id=8553071879957414312" />
-    </Preference>
-
-    <Preference
-      android:key="@string/pref_key_contact"
-      android:summary="@string/pref_summary_contact"
-      android:title="@string/pref_title_contact" />
-
-    <Preference
-      android:key="@string/pref_key_source"
-      android:summary="@string/pref_summary_source"
-      android:title="@string/pref_title_source" />
-
-    <Preference
       android:key="@string/pref_key_version"
-      android:title="@string/pref_title_version">
-      <intent
-        android:action="android.intent.action.VIEW"
-        android:data="https://play.google.com/store/apps/details?id=com.samleatherdale.openwith" />
-    </Preference>
+      android:title="@string/pref_title_version" />
 
   </PreferenceCategory>
 

@@ -1,53 +1,61 @@
-# Open Link With: Redux
+# Open Link With
 
-<a href="https://play.google.com/store/apps/details?id=com.samleatherdale.openwith" target="_blank">
-<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" /></a>
+A personal fork of [Open Link With: Redux](https://github.com/SamLeatherdale/OpenLinkWith) by Sam Leatherdale, which itself is a fork of the [original Open Link With](https://github.com/tasomaniac/openlinkwith) by Said Tahsin Dane.
 
-<a href="https://apt.izzysoft.de/fdroid/index/apk/com.samleatherdale.openwith.floss" target="_blank">
-<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroidButtonGreyBorder_nofont.svg" alt="Get it onIzzyOnDroid" /></a>
+---
 
-<a href="https://apt.izzysoft.de/fdroid/index/apk/com.samleatherdale.openwith.floss" target="_blank">
-<img src="https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/com.samleatherdale.openwith.floss&label=IzzyOnDroid" alt="Get it onIzzyOnDroid" /></a>
+## What is this fork?
 
-## What is Open Link With: Redux?
+This fork focuses exclusively on **one thing**: showing a chooser dialog when you open a link, so you can decide which app handles it — including browsers, native apps, or download managers.
 
-Welcome to Open Link With: Redux!
+Everything else has been stripped away to keep the app lightweight and purposeful.
 
-This is the revived version of the [original Open Link With app](https://github.com/tasomaniac/openlinkwith), which was created by Said Tahsin Dane. 
+### What was removed
 
-Unfortunately, the app was no longer maintained by the original developer, as it does not target the latest Android SDK. 
-On August 31, 2024, [Google required all apps to target at least Android 13](https://developer.android.com/google/play/requirements/target-sdk), or they would be removed from the Play Store, including Open Link With.
+- Network access (OkHttp, redirect following, URL title fetching)
+- Add to Home Screen
+- URL cleanup / tracking parameter removal
+- Foreground app detection (usage stats permission)
+- Clipboard integration
+- Introduction / tutorial screen
+- Rating prompt
+- Debug section
 
-So, I decided to fork the app, upgrade it to the latest SDK, and re-publish it on the Play Store.
+### What was added or improved
 
-Below, you can find the original README.
+**Samsung OneUI-inspired design**
+The UI has been restyled to follow Samsung OneUI conventions: grouped preference cards on a gray background, pill-shaped buttons, and proper light/dark theme support.
 
-## What does it do?
+**Expanded link handling**
+Popular social media domains are registered as supported links, so you can set this app as the default handler for specific sites through Android system settings:
 
-Open the current webpage in a browser in another app!
+| Service | Domains |
+|---|---|
+| X / Twitter | x.com, twitter.com |
+| YouTube | youtube.com, youtu.be |
+| Instagram | instagram.com |
+| Reddit | reddit.com, redd.it |
+| TikTok | tiktok.com |
+| Facebook | facebook.com |
+| LinkedIn | linkedin.com |
+| GitHub | github.com |
 
-Did it ever happen to you? You click a link (let's say Youtube link) and the system does not ask you anything and opens the link in the browser. And you are stuck in Youtube webview instead of watching the video in the native app.
+**Media file link handling**
+Links to video and audio files (`.mp4`, `.mkv`, `.mp3`, `.m4a`, etc.) are now intercepted, so you can choose to open them in a browser, stream in a player, or pass to a download manager instead of having them open automatically.
 
-There are 2 options for you. You either watch the video in the web or you remember the name of the video and search it in the app. Well, not anymore. 
+---
 
-With OpenLinkWith, you can share any webpage with it and it will ask you which applications to open the link with.
+## How to build
 
-Although the original intent of the application is to direct webpages to apps, it can even be used to switch between apps. Imagine you have 2 Twitter clients in your phone. You can open a tweet in the official Twitter application and then switch to an another app with the same tweet opened. Cool, hah?
+```
+./gradlew assembleFlossDebug
+```
 
-## Why
-
-Although the problem discovered above is not huge, it is missing in the Android ecosystem. And I couldn't find anything doing this. So I wrote one. :)
-
-Although it is not the most useful app, it does save you when you stuck in a browser where you want the native app to be open. I hope you find it useful.
-
-
-## Translation
-
-The original app's translation project is still live at https://crowdin.com/project/open-link-with/
-
-However, I have not yet set up the translation project for this fork.
+---
 
 ## License
+
+Modifications in this fork are made under the same license as the original.
 
     Copyright (C) 2015 Said Tahsin Dane
 
@@ -62,3 +70,71 @@ However, I have not yet set up the translation project for this fork.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+---
+
+---
+
+# Open Link With（日本語）
+
+[Open Link With: Redux](https://github.com/SamLeatherdale/OpenLinkWith)（Sam Leatherdale）の個人フォークです。元は Said Tahsin Dane による [Open Link With](https://github.com/tasomaniac/openlinkwith) が起源です。
+
+---
+
+## このフォークについて
+
+このフォークは **一つのことだけ** に集中しています：リンクを開くときにチューザーダイアログを表示し、ブラウザ・ネイティブアプリ・ダウンロードマネージャーなど好きなアプリで開けるようにすること。
+
+それ以外の機能はすべて削除し、軽量でシンプルなアプリを目指しています。
+
+### 削除した機能
+
+- ネットワークアクセス（OkHttp・リダイレクト追跡・URLタイトル取得）
+- ホーム画面に追加
+- URLクリーンアップ（トラッキングパラメーター除去）
+- フォアグラウンドアプリの検出（使用状況アクセス権限）
+- クリップボード連携
+- 紹介・チュートリアル画面
+- レーティング催促
+- デバッグセクション
+
+### 追加・改善した点
+
+**Samsung OneUI デザインに着想を得た UI**
+設定画面のスタイルを Samsung OneUI の設計に合わせて刷新しました。グレー背景上のグループカード形式のプレファレンスリスト、ピル型ボタン、ライト／ダークテーマの適切な対応が含まれます。
+
+**対応リンクの拡充**
+主要なSNSドメインをサポート済みリンクとして登録しています。Android のシステム設定から各サイトのデフォルトアプリとして本アプリを指定できます：
+
+| サービス | ドメイン |
+|---|---|
+| X / Twitter | x.com, twitter.com |
+| YouTube | youtube.com, youtu.be |
+| Instagram | instagram.com |
+| Reddit | reddit.com, redd.it |
+| TikTok | tiktok.com |
+| Facebook | facebook.com |
+| LinkedIn | linkedin.com |
+| GitHub | github.com |
+
+**メディアファイルリンクへの対応**
+`.mp4`・`.mkv`・`.mp3`・`.m4a` などの動画・音声ファイルへのリンクを開く際もチューザーが表示されます。自動的に動画プレイヤーで開かれる代わりに、ブラウザで再生するかダウンロードマネージャーに渡すかを選べます。
+
+---
+
+## ビルド方法
+
+```
+./gradlew assembleFlossDebug
+```
+
+---
+
+## ライセンス
+
+このフォークへの変更は、元のライセンスと同じ条件で提供されます。
+
+    Copyright (C) 2015 Said Tahsin Dane
+
+    Apache License, Version 2.0 に基づきライセンスされています。
+    詳細は上記の英語ライセンス条文を参照してください。

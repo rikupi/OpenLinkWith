@@ -19,41 +19,7 @@
     android:paddingTop="8dp"
     android:paddingEnd="?attr/listPreferredItemPaddingRight"
     android:paddingBottom="8dp"
-    android:textAppearance="?android:attr/textAppearanceMedium" />
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:textSize="12sp" />
 
-  <LinearLayout
-    android:id="@+id/link_info_button_bar"
-    style="?attr/buttonBarStyle"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/window_background"
-    android:gravity="end|center_vertical"
-    android:measureWithLargestChild="true"
-    android:orientation="horizontal"
-    android:paddingLeft="12dp"
-    android:paddingRight="12dp">
-
-    <Button
-      android:id="@+id/button_unshorten"
-      style="?attr/buttonBarPositiveButtonStyle"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="end"
-      android:text="@string/activity_resolver_unshorten"
-      android:visibility="gone" />
-
-    <Button
-      android:id="@+id/button_copy"
-      style="?attr/buttonBarPositiveButtonStyle"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="end"
-      android:text="@string/activity_resolver_copy" />
-
-  </LinearLayout>
-
-  <View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="?attr/dividerVertical" />
 </LinearLayout>

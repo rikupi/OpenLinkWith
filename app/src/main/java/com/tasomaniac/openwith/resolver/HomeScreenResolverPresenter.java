@@ -3,7 +3,6 @@ package com.tasomaniac.openwith.resolver;
 import android.content.Intent;
 import android.content.res.Resources;
 
-import com.tasomaniac.openwith.redirect.RedirectFixActivity;
 import com.tasomaniac.openwith.translations.R;
 
 import javax.inject.Inject;
@@ -79,13 +78,6 @@ class HomeScreenResolverPresenter implements ResolverPresenter {
         public void onItemClick(DisplayActivityInfo activityInfo) {
             Intent intent = activityInfo.intentFrom(intentResolver.getSourceIntent());
             activity.displayAddToHomeScreenDialog(activityInfo, intent);
-        }
-
-        @Override public void onUnshorten() {
-            Intent intent = RedirectFixActivity.createIntent(activity, activity.getIntent().getDataString())
-                    .putExtra(RedirectFixActivity.EXTRA_UNSHORT, true);
-            activity.startActivity(intent);
-            activity.dismiss();
         }
 
         @Override
