@@ -1,5 +1,7 @@
 # Open Link With
 
+![App](./main.png "App")
+
 A personal fork of [Open Link With: Redux](https://github.com/SamLeatherdale/OpenLinkWith) by Sam Leatherdale, which itself is a fork of the [original Open Link With](https://github.com/tasomaniac/openlinkwith) by Said Tahsin Dane.
 
 ---
@@ -27,6 +29,9 @@ Everything else has been stripped away to keep the app lightweight and purposefu
 The UI has been restyled to follow Samsung OneUI conventions: grouped preference cards on a gray background, pill-shaped buttons, and proper light/dark theme support.
 
 **Expanded link handling**
+
+![App](./discord_x.png "App")
+
 Popular social media domains are registered as supported links, so you can set this app as the default handler for specific sites through Android system settings:
 
 | Service | Domains |
@@ -41,6 +46,9 @@ Popular social media domains are registered as supported links, so you can set t
 | GitHub | github.com |
 
 **Media file link handling**
+
+![App](./media.png "App")
+
 Links to video and audio files (`.mp4`, `.mkv`, `.mp3`, `.m4a`, etc.) are now intercepted, so you can choose to open them in a browser, stream in a player, or pass to a download manager instead of having them open automatically.
 
 ---
