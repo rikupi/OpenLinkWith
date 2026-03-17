@@ -1,6 +1,6 @@
 # Open Link With
 
-<img src="./main.png" width="50%">
+<img src="./main.png" width="30%">
 
 A personal fork of [Open Link With: Redux](https://github.com/SamLeatherdale/OpenLinkWith) by Sam Leatherdale, which itself is a fork of the [original Open Link With](https://github.com/tasomaniac/openlinkwith) by Said Tahsin Dane.
 
