@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
-import androidx.recyclerview.widget.DividerItemDecoration
+import com.tasomaniac.openwith.ui.OneUiListDecoration
 import com.tasomaniac.openwith.HeaderAdapter
 import com.tasomaniac.openwith.SimpleTextViewHolder
 import com.tasomaniac.openwith.browser.databinding.BrowserActivityPreferredAppsBinding
@@ -55,7 +55,7 @@ class PreferredBrowserActivity : DaggerAppCompatActivity(), BrowsersAdapter.List
     }
 
     private fun BrowserActivityPreferredAppsBinding.setupList(browsers: List<DisplayActivityInfo>) {
-        recyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        recyclerView.addItemDecoration(OneUiListDecoration(context, headerCount = 1))
 
         val browsersAdapter = BrowsersAdapter(
             browsers,

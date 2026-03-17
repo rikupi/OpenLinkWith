@@ -1,4 +1,4 @@
-package com.tasomaniac.openwith.settings
+package com.tasomaniac.openwith.ui
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -8,13 +8,17 @@ import android.graphics.drawable.RippleDrawable
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RoundRectShape
 import androidx.core.content.ContextCompat
-import androidx.preference.PreferenceCategory
-import androidx.preference.PreferenceGroupAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.tasomaniac.openwith.R as AppR
 import com.tasomaniac.openwith.base.R
 
-class OneUiGroupDecoration(context: Context) : RecyclerView.ItemDecoration() {
+/**
+ * OneUI-style card decoration for regular RecyclerView lists.
+ * @param headerCount Number of header items at the top to exclude from card styling.
+ */
+class OneUiListDecoration(
+    context: Context,
+    private val headerCount: Int = 0
+) : RecyclerView.ItemDecoration() {
 
     private val density = context.resources.displayMetrics.density
 
@@ -28,29 +32,30 @@ class OneUiGroupDecoration(context: Context) : RecyclerView.ItemDecoration() {
 
     private val cornerRadius = 26 * density
     private val dividerInset = 16 * density
+    private val cardMargin = (8 * density).toInt()
 
-    private enum class Role { SINGLE, FIRST, MIDDLE, LAST }
+    private enum class Role { SINGLE, FIRST, MIDDLE, LAST, HEADER }
 
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-        val adapter = parent.adapter as? PreferenceGroupAdapter ?: return
-        val itemCount = adapter.itemCount
+        val itemCount = (parent.adapter?.itemCount ?: return) - headerCount
 
         for (i in 0 until parent.childCount) {
             val view = parent.getChildAt(i)
             val pos = parent.getChildAdapterPosition(view)
             if (pos == RecyclerView.NO_POSITION) continue
 
-            val pref = adapter.getItem(pos) ?: continue
-            if (pref is PreferenceCategory) {
-                if (view.getTag(AppR.id.oneui_card_role) != null) {
+            if (pos < headerCount) {
+                if (view.tag != Role.HEADER) {
+                    view.tag = Role.HEADER
                     view.background = null
-                    view.setTag(AppR.id.oneui_card_role, null)
+                    view.foreground = null
                 }
                 continue
             }
 
-            val isFirst = pos == 0 || adapter.getItem(pos - 1) is PreferenceCategory
-            val isLast = pos >= itemCount - 1 || adapter.getItem(pos + 1) is PreferenceCategory
+            val contentPos = pos - headerCount
+            val isFirst = contentPos == 0
+            val isLast = contentPos >= itemCount - 1
 
             val role = when {
                 isFirst && isLast -> Role.SINGLE
@@ -59,8 +64,9 @@ class OneUiGroupDecoration(context: Context) : RecyclerView.ItemDecoration() {
                 else              -> Role.MIDDLE
             }
 
-            if (view.getTag(AppR.id.oneui_card_role) != role) {
-                view.setTag(AppR.id.oneui_card_role, role)
+            if (view.tag != role) {
+                view.tag = role
+                view.foreground = null
                 view.background = createBackground(role)
             }
 
@@ -68,18 +74,16 @@ class OneUiGroupDecoration(context: Context) : RecyclerView.ItemDecoration() {
     }
 
     override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-        val adapter = parent.adapter as? PreferenceGroupAdapter ?: return
+        val itemCount = (parent.adapter?.itemCount ?: return) - headerCount
 
         for (i in 0 until parent.childCount) {
             val view = parent.getChildAt(i)
             val pos = parent.getChildAdapterPosition(view)
             if (pos == RecyclerView.NO_POSITION) continue
+            if (pos < headerCount) continue
 
-            val pref = adapter.getItem(pos) ?: continue
-            if (pref is PreferenceCategory) continue
-
-            val isFirst = pos == 0 || adapter.getItem(pos - 1) is PreferenceCategory
-            if (!isFirst) {
+            val contentPos = pos - headerCount
+            if (contentPos > 0) {
                 c.drawLine(
                     view.left + dividerInset, view.top.toFloat(),
                     view.right - dividerInset, view.top.toFloat(),
@@ -95,7 +99,7 @@ class OneUiGroupDecoration(context: Context) : RecyclerView.ItemDecoration() {
             Role.SINGLE -> floatArrayOf(r, r, r, r, r, r, r, r)
             Role.FIRST  -> floatArrayOf(r, r, r, r, 0f, 0f, 0f, 0f)
             Role.LAST   -> floatArrayOf(0f, 0f, 0f, 0f, r, r, r, r)
-            Role.MIDDLE -> floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
+            else        -> floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
         }
         val shape = ShapeDrawable(RoundRectShape(radii, null, null))
         shape.paint.color = cardColor

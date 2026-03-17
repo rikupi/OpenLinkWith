@@ -8,9 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.postDelayed
 import androidx.core.view.updatePadding
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.tasomaniac.openwith.ui.OneUiListDecoration
 import com.tasomaniac.openwith.HeaderAdapter
 import com.tasomaniac.openwith.SimpleTextViewHolder
 import com.tasomaniac.openwith.data.Analytics
@@ -55,7 +55,7 @@ class PreferredAppsActivity : DaggerAppCompatActivity(), ItemClickListener, AppR
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        recyclerView.addItemDecoration(OneUiListDecoration(this, headerCount = 1))
         adapter.itemClickListener = this
         recyclerView.adapter = wrapWithHeader(adapter)
 

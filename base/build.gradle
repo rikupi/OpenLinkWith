@@ -13,4 +13,5 @@ dependencies {
     api project(':base-translations')
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
     api "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+    api "androidx.recyclerview:recyclerview:1.3.2"
 }
