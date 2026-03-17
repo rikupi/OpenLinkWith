@@ -2,7 +2,7 @@
 
 <img src="./main.png" width="30%">
 
-A personal fork of [Open Link With: Redux](https://github.com/SamLeatherdale/OpenLinkWith) by Sam Leatherdale, which itself is a fork of the [original Open Link With](https://github.com/tasomaniac/openlinkwith) by Said Tahsin Dane.
+A personal fork by rikupi of [Open Link With: Redux](https://github.com/SamLeatherdale/OpenLinkWith) by Sam Leatherdale, which itself is a fork of the [original Open Link With](https://github.com/tasomaniac/openlinkwith) by Said Tahsin Dane.
 
 ---
 
@@ -85,7 +85,7 @@ Modifications in this fork are made under the same license as the original.
 
 # Open Link With（日本語）
 
-[Open Link With: Redux](https://github.com/SamLeatherdale/OpenLinkWith)（Sam Leatherdale）の個人フォークです。元は Said Tahsin Dane による [Open Link With](https://github.com/tasomaniac/openlinkwith) が起源です。
+rikupi による個人フォークです。元は Sam Leatherdale による [Open Link With: Redux](https://github.com/SamLeatherdale/OpenLinkWith) をフォークしたもので、さらにその元は Said Tahsin Dane による [Open Link With](https://github.com/tasomaniac/openlinkwith) が起源です。
 
 ---
 
