@@ -33,6 +33,7 @@
     android:roundIcon="@mipmap/ic_launcher_main"
     android:supportsRtl="true"
     android:theme="@style/Theme.OpenWith"
+    android:localeConfig="@xml/locales_config"
     tools:ignore="GoogleAppIndexingWarning">
 
     <meta-data

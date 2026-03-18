@@ -19,6 +19,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import androidx.preference.PreferenceManager;
 import android.provider.Settings;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -35,6 +36,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.tasomaniac.openwith.HeaderAdapter;
 import com.tasomaniac.openwith.SimpleTextViewHolder;
 import com.tasomaniac.openwith.util.IntentFixer;
+
+import androidx.core.view.SemBlurCompat;
+import dev.oneuiproject.oneui.ktx.ContextKt;
+import dev.oneuiproject.oneui.utils.DeviceInfoUtilKt;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -96,6 +101,9 @@ public class ResolverActivity extends DaggerAppCompatActivity implements
 
         // Request insets
         ViewCompat.requestApplyInsets(contentPanel);
+
+        // Apply acrylic blur effect on supported devices (sheet content only)
+        applyBlurEffect();
 
         // Show the URL from the intent
         Intent intent = getIntent();
@@ -265,6 +273,29 @@ public class ResolverActivity extends DaggerAppCompatActivity implements
         if (!isFinishing()) {
             finish();
         }
+    }
+
+    private void applyBlurEffect() {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.VANILLA_ICE_CREAM) return;
+        if (!DeviceInfoUtilKt.getSupports3DTransitionFlag()) return;
+
+        boolean enabled = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("pref_acrylic_blur", true);
+        if (!enabled) return;
+
+        View sheetContainer = findViewById(R.id.sheet_container);
+        if (sheetContainer == null) return;
+
+        boolean isLight = ContextKt.isLightMode(this);
+        int colorCurve = isLight
+                ? SemBlurCompat.BLUR_UI_LOW_ULTRA_THICK_LIGHT
+                : SemBlurCompat.BLUR_UI_LOW_ULTRA_THICK_DARK;
+        float cornerRadius = getResources().getDimensionPixelSize(
+                androidx.appcompat.R.dimen.sesl_dialog_background_corner_radius);
+
+        SemBlurCompat.setBlurEffectPreset(
+                sheetContainer, SemBlurCompat.BLUR_MODE_WINDOW,
+                colorCurve, null, cornerRadius);
     }
 
 }

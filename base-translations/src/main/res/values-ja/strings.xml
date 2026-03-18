@@ -31,6 +31,10 @@
   <string name="pref_summary_usage_stats">アプリの表示順を向上させるために、使用統計情報へのアクセスを許可してください</string>
   <string name="pref_title_category_display">ディスプレイ</string>
   <string name="pref_title_night_mode">夜間モード</string>
+  <string name="pref_title_acrylic_blur">アクリルブラー</string>
+  <string name="pref_summary_acrylic_blur_on">アプリ選択画面にすりガラス効果を適用します</string>
+  <string name="pref_summary_acrylic_blur_off">すりガラス効果は無効です</string>
+  <string name="pref_summary_acrylic_blur_unavailable">この機能はGalaxy端末でのみ利用できます</string>
   <string name="pref_entry_night_mode_off">ライト</string>
   <string name="pref_entry_night_mode_on">ダーク</string>
   <string name="pref_entry_night_mode_battery">バッテリーセーバーで設定</string>
@@ -100,6 +104,8 @@
   <string name="pref_summary_contact">★1 をつける前にまずはメールをください</string>
   <string name="pref_title_market">Sam Leatherdale の他のアプリ</string>
   <string name="pref_summary_market">気に入っていただけましたら、ぜひ他のアプリも見ていただけませんか？</string>
+  <string name="pref_title_acknowledgements">謝辞</string>
+  <string name="pref_summary_acknowledgements">このアプリが利用しているプロジェクトと貢献者</string>
   <string name="pref_title_version">バージョン</string>
   <string name="error">エラー</string>
   <string name="error_usage_access_not_found">使用状況へのアクセスの設定が見つかりませんでした\n\n設定 -&gt; セキュリティからアクセスできます</string>

@@ -12,6 +12,7 @@
   <string name="pref_value_night_mode_on" translatable="false">on</string>
   <string name="pref_value_night_mode_battery" translatable="false">battery</string>
   <string name="pref_value_night_mode_system" translatable="false">system</string>
+  <string name="pref_key_acrylic_blur" translatable="false">pref_acrylic_blur</string>
   <string name="pref_key_category_clipboard" translatable="false">pref_category_clipboard</string>
   <string name="pref_key_clipboard" translatable="false">pref_clipboard</string>
   <string name="pref_key_category_ask_for_rating" translatable="false">pref_category_ask_for_rating</string>
@@ -25,6 +26,7 @@
   <string name="pref_key_feature_browser" translatable="false">pref_feature_browser</string>
   <string name="pref_key_feature_clean_urls" translatable="false">pref_feature_clean_urls</string>
   <string name="pref_key_feature_caller_app" translatable="false">pref_feature_caller_app</string>
+  <string name="pref_key_acknowledgements" translatable="false">pref_acknowledgements</string>
   <string name="pref_key_open_source" translatable="false">pref_open_source</string>
   <string name="pref_key_contact" translatable="false">pref_contact</string>
   <string name="pref_key_source" translatable="false">pref_source</string>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="ko">
+  <string name="open_with">열기&#8230;</string>
+  <string name="title_preferred_apps">기본 앱</string>
+  <string name="add_to_homescreen">홈 화면에 추가</string>
+  <string name="use_a_different_app">다른 앱 사용</string>
+  <string name="activity_resolver_use_once">한 번만</string>
+  <string name="activity_resolver_use_always">항상</string>
+  <string name="which_view_application">다음으로 열기</string>
+  <string name="which_view_application_named">%1$s(으)로 열기</string>
+  <string name="desc_preferred">아래 링크를 이 앱으로 공유할 때 바로 사용되는 기본 앱입니다.\n\n기본 앱을 해제하려면 탭하세요.</string>
+  <string name="desc_preferred_empty">아래 링크를 이 앱으로 공유할 때 바로 사용되는 기본 앱입니다.\n\n링크를 이 앱으로 공유하고 \"항상\"을 선택하면 기본 앱을 설정할 수 있습니다.</string>
+  <string name="title_remove_preferred">기본 설정을 해제하시겠습니까?</string>
+  <string name="message_remove_preferred"><![CDATA[    <strong>%1$s</strong>을(를) <strong>%2$s</strong> 링크의 기본 앱에서 해제하시겠습니까?<br><br><strong>참고:</strong> 다음에 <strong>%3$s</strong> 링크를 공유할 때 새 기본 앱을 설정할 수 있습니다.
+    ]]></string>
+  <string name="error_invalid_url">공유된 콘텐츠에 유효한 URL이 없습니다.</string>
+  <string name="empty_resolver_activity">이 URL을 처리할 수 있는 앱을 찾을 수 없습니다.</string>
+  <string name="warning_open_link_with_name">%s(으)로 링크를 열고 있습니다.</string>
+  <string name="pref_title_general">일반</string>
+  <string name="pref_title_about">소개</string>
+  <string name="pref_summary_about">튜토리얼을 다시 봅니다.</string>
+  <string name="pref_summary_preferred">기본 앱 설정을 변경합니다.</string>
+  <string name="browser_title">브라우저</string>
+  <string name="browser_description">Open Link With로 링크를 공유하면 네이티브 앱과 함께 브라우저도 추천됩니다.\n\n아래를 선택하여 이 동작을 변경할 수 있습니다.</string>
+  <string name="browser_none">브라우저 숨기기</string>
+  <string name="browser_none_description">브라우저를 추천하지 않습니다. 네이티브 앱만 표시</string>
+  <string name="browser_always_ask">항상 묻기</string>
+  <string name="browser_always_ask_description">추천 앱 목록에 모든 브라우저를 포함합니다</string>
+  <string name="pref_summary_selected_browser">%s만 추천됩니다</string>
+  <string name="pref_title_usage_stats">사용 통계</string>
+  <string name="pref_summary_usage_stats">앱 정렬을 개선하기 위해 사용 통계 접근을 허용해 주세요.</string>
+  <string name="pref_title_category_display">디스플레이</string>
+  <string name="pref_title_night_mode">야간 모드</string>
+  <string name="pref_title_acrylic_blur">아크릴 블러</string>
+  <string name="pref_summary_acrylic_blur_on">앱 선택 화면에 반투명 유리 효과를 적용합니다</string>
+  <string name="pref_summary_acrylic_blur_off">반투명 유리 효과가 비활성화되었습니다</string>
+  <string name="pref_summary_acrylic_blur_unavailable">이 기능은 Galaxy 기기에서만 사용할 수 있습니다</string>
+  <string name="pref_entry_night_mode_off">라이트</string>
+  <string name="pref_entry_night_mode_on">다크</string>
+  <string name="pref_entry_night_mode_battery">절전 모드에 따라 설정</string>
+  <string name="pref_entry_night_mode_system">시스템 기본값 사용</string>
+  <string name="pref_title_category_clipboard">복사한 링크</string>
+  <string name="pref_title_clipboard">탭하여 열기&#8230;</string>
+  <string name="pref_title_category_ask_for_rating">앱이 마음에 드셨나요?</string>
+  <string name="pref_title_ask_for_rating">Open Link With가 마음에 드셨다면 평가를 남겨주시겠어요? 감사합니다!</string>
+  <string name="ask_for_rating_feedback">피드백을 보내시겠습니까?</string>
+  <string name="ask_for_rating_feedback_message">자세한 내용을 알려주시겠습니까?</string>
+  <string name="ask_for_rating_feedback_email_subject">Open Link With 피드백</string>
+  <string name="ask_for_rating_rating_positive_button">평가</string>
+  <string name="ask_for_rating_rating_message">Play 스토어에서 \"이 앱 평가하기\"를 찾아 평가해 주세요.\n\n감사합니다! 🎉</string>
+  <string name="pref_title_category_advanced">고급</string>
+  <string name="pref_title_features">앱 기능</string>
+  <string name="pref_summary_features">앱 기능을 활성화하거나 비활성화합니다</string>
+  <string name="pref_details_feature_add_to_homescreen"><![CDATA[    <strong>홈 화면에 추가</strong>를 사용하면 즐겨찾는 앱으로 즐겨찾는 링크에 빠르게 접근할 수 있습니다.<br>
+    <br>
+    활성화하면 시스템 <strong>공유</strong> 메뉴에 <strong>홈 화면에 추가</strong>가 추가됩니다.<br>
+    선택하면 공유한 링크를 홈 화면에 추가하는 옵션이 표시됩니다.
+  ]]></string>
+  <string name="pref_title_feature_text_selection">텍스트 선택</string>
+  <string name="pref_details_feature_text_selection"><![CDATA[    활성화하면 시스템 텍스트 선택 팝업에 <strong>열기…</strong> 옵션이 추가됩니다.<br>
+    <br>
+    이 기능은 링크를 공유하기 어려운 상황에서 유용합니다. 텍스트 필드에 링크가 표시되어 있을 때 길게 눌러 텍스트를 선택하고 <strong>열기…</strong>를 탭하세요.
+  ]]></string>
+  <string name="pref_title_feature_direct_share">직접 공유</string>
+  <string name="pref_details_feature_direct_share"><![CDATA[    <strong>직접 공유</strong>는 공유 메뉴에서 관련성이 높은 공유 대상을 별도로 표시하는 Android 기능입니다.<br>
+    <br>
+    활성화하면 <strong>Open Link With</strong>가 시스템 공유 메뉴 상단에 표시됩니다.<br>
+    우선순위가 낮게 설정되어 있으므로 다른 앱에서 더 관련성이 높은 대상이 발견되면 Open Link With가 표시되지 않을 수 있습니다.
+  ]]></string>
+  <string name="pref_title_feature_browser">브라우저로 설정</string>
+  <string name="pref_details_feature_browser"><![CDATA[    <strong>경고:</strong> 실험적 기능입니다!<br>
+    <br>
+    Android가 <strong>Open Link With</strong>를 <strong>브라우저</strong>로 인식하게 합니다.<br>
+    <br>
+    활성화하면 공유를 사용할 필요 없이 링크를 탭하기만 하면 Open Link With가 실행되어 네이티브 앱으로 링크를 엽니다. 또한 단축된 링크를 원래 주소로 복원합니다.<br>
+    <br>
+    <strong>주의하세요!</strong> Chrome(또는 기본 브라우저)이 더 이상 기본 브라우저가 아니게 됩니다.
+     일부 동작이 변경될 수 있습니다. 장점으로는 네이티브 앱으로 링크를 여는 것이 더 편리해집니다.
+  ]]></string>
+  <string name="pref_title_feature_clean_urls">링크 정리</string>
+  <string name="pref_details_feature_clean_urls"><![CDATA[    활성화하면 <strong>Open Link With</strong>가 공유 링크에서 광고 관련 추적 매개변수를 제거합니다.
+    <br>
+    제공된 정규식 규칙에 따라 링크가 정리됩니다.
+  ]]></string>
+  <string name="clean_urls_regex_hint">정규식 규칙</string>
+  <string name="pref_title_feature_caller_app">포그라운드 앱 감지</string>
+  <string name="pref_details_feature_caller_app"><![CDATA[    <strong>경고:</strong> 실험적 기능입니다!<br>
+    <br>
+    활성화하면 링크를 공유한 포그라운드 앱이 추천 목록에 표시되지 않습니다.
+    <br><br>
+    예: 브라우저에서 공유하면 브라우저가 다시 추천되지 않습니다. 네이티브 앱을 찾을 수 없는 경우 경고 메시지가 표시됩니다.
+    <br>
+    비활성화하면 이미 열려 있는 포그라운드 앱도 추천됩니다.
+  ]]></string>
+  <string name="feature_default_browser_message"><![CDATA[    다음 창에서 <strong>Open Link With</strong>를 선택한 다음 <strong>항상</strong>을 선택해 주세요.
+  ]]></string>
+  <string name="pref_state_feature_enabled">활성화됨</string>
+  <string name="pref_state_feature_disabled">비활성화됨</string>
+  <string name="pref_title_category_others">기타</string>
+  <string name="pref_title_open_source">오픈소스 라이선스</string>
+  <string name="pref_summary_open_source">오픈소스 라이브러리의 라이선스를 봅니다.</string>
+  <string name="pref_title_contact">문의하기</string>
+  <string name="pref_summary_contact">별점 1점을 주기 전에 먼저 이메일을 보내주세요.</string>
+  <string name="pref_title_market">Sam Leatherdale의 다른 앱</string>
+  <string name="pref_summary_market">마음에 드셨나요? 다른 앱도 확인해 보세요!</string>
+  <string name="pref_title_acknowledgements">감사의 말</string>
+  <string name="pref_summary_acknowledgements">이 앱이 기반으로 하는 프로젝트와 기여자</string>
+  <string name="pref_title_version">버전</string>
+  <string name="error">오류</string>
+  <string name="error_usage_access_not_found">사용 접근 설정을 열 수 없습니다.\n\n설정 -> 보안에서 접근할 수 있습니다.</string>
+  <string name="error_cannot_start_activity">선택한 앱으로 링크를 열 수 없습니다. 나중에 다시 시도해 주세요.</string>
+  <string name="add">추가</string>
+  <string name="cancel">취소</string>
+  <string name="add_to_home_screen_dialog_hint">바로가기 제목</string>
+  <string name="add_to_home_screen_error">이 기기는 바로가기를 지원하지 않습니다!</string>
+</resources>

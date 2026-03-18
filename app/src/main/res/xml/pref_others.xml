@@ -5,6 +5,11 @@
     android:title="@string/pref_title_category_others">
 
     <Preference
+      android:key="@string/pref_key_acknowledgements"
+      android:summary="@string/pref_summary_acknowledgements"
+      android:title="@string/pref_title_acknowledgements" />
+
+    <Preference
       android:key="@string/pref_key_open_source"
       android:summary="@string/pref_summary_open_source"
       android:title="@string/pref_title_open_source" />
