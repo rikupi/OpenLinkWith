@@ -53,6 +53,12 @@ class SettingsActivity :
 
     override fun onPreferenceStartFragment(caller: PreferenceFragmentCompat, pref: Preference): Boolean {
         supportFragmentManager.commit {
+            setCustomAnimations(
+                androidx.fragment.R.anim.sesl_fragment_open_enter,
+                androidx.fragment.R.anim.sesl_fragment_open_exit,
+                androidx.fragment.R.anim.sesl_fragment_close_enter,
+                androidx.fragment.R.anim.sesl_fragment_close_exit
+            )
             val fragment = supportFragmentManager.fragmentFactory.instantiate(classLoader, pref.fragment ?: return false)
             replace(R.id.fragment_container, fragment)
             addToBackStack(null)

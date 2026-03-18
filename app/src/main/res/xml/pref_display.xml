@@ -12,6 +12,11 @@
       android:entries="@array/pref_night_mode_entries"
       />
 
+    <SwitchPreferenceCompat
+      android:key="@string/pref_key_acrylic_blur"
+      android:title="@string/pref_title_acrylic_blur"
+      android:defaultValue="true" />
+
   </PreferenceCategory>
 
 </PreferenceScreen>

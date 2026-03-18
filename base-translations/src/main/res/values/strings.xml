@@ -41,6 +41,10 @@
   <string name="pref_title_category_display">Display</string>
 
   <string name="pref_title_night_mode">Night Mode</string>
+  <string name="pref_title_acrylic_blur">Acrylic Blur</string>
+  <string name="pref_summary_acrylic_blur_on">Applies a frosted glass effect to the app chooser</string>
+  <string name="pref_summary_acrylic_blur_off">Frosted glass effect is disabled</string>
+  <string name="pref_summary_acrylic_blur_unavailable">This feature is only available on Galaxy devices</string>
   <string name="pref_entry_night_mode_off">Light</string>
   <string name="pref_entry_night_mode_on">Dark</string>
   <string name="pref_entry_night_mode_battery">Set by Battery Saver</string>
@@ -129,6 +133,9 @@
 
   <string name="pref_title_market">More apps by Sam Leatherdale</string>
   <string name="pref_summary_market">Like it? Why not check out my other apps?</string>
+
+  <string name="pref_title_acknowledgements">Acknowledgements</string>
+  <string name="pref_summary_acknowledgements">Projects and contributors this app is built upon</string>
 
   <string name="pref_title_version">Version</string>
 

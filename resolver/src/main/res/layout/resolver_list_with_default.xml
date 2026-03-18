@@ -7,8 +7,9 @@
   app:maxCollapsedHeight="144dp"
   app:resolverMaxWidth="@dimen/resolver_max_width">
 
-  <!-- Drag handle + link info + preferred item -->
+  <!-- Single container for blur -->
   <LinearLayout
+    android:id="@+id/sheet_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_shape"
@@ -65,8 +66,7 @@
       android:paddingHorizontal="16dp"
       android:paddingTop="4dp"
       android:paddingBottom="8dp"
-      android:visibility="gone"
-      app:layout_alwaysShow="true">
+      android:visibility="gone">
 
       <Button
         android:id="@+id/button_once"
@@ -104,19 +104,19 @@
       android:layout_height="1dp"
       android:layout_marginHorizontal="16dp"
       android:background="@color/resolver_divider" />
-  </LinearLayout>
 
-  <!-- Other apps list -->
-  <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/resolver_list"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/resolver_background"
-    android:clipToPadding="false"
-    android:divider="@null"
-    android:paddingBottom="8dp"
-    android:scrollbarStyle="outsideOverlay"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    android:orientation="vertical" />
+    <!-- Other apps list -->
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/resolver_list"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:clipToPadding="false"
+      android:divider="@null"
+      android:paddingBottom="8dp"
+      android:scrollbarStyle="outsideOverlay"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      android:orientation="vertical" />
+
+  </LinearLayout>
 
 </com.tasomaniac.openwith.resolver.ResolverDrawerLayout>

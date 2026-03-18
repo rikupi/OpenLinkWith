@@ -13,6 +13,12 @@ class OtherSettings @Inject constructor(
     override fun setup() {
         addPreferencesFromResource(R.xml.pref_others)
 
+        findPreference(R.string.pref_key_acknowledgements).setOnPreferenceClickListener {
+            AcknowledgementsDialogFragment.newInstance()
+                .show(activity.supportFragmentManager, "AcknowledgementsDialog")
+            true
+        }
+
         findPreference(R.string.pref_key_open_source).setOnPreferenceClickListener {
             displayLicensesDialogFragment()
             true
