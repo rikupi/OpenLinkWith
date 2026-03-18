@@ -9,8 +9,8 @@ buildscript {
     ext.versions = [
             compileSdk : 36, // Android 16
             minSdk     : 23, // Android 6.0 (Marshmallow)
-            versionCode: 30301,
-            versionName: "3.3.1",
+            versionCode: 10000,
+            versionName: "1.0.0",
 
             dagger     : '2.56.2',
             lifecycle  : '2.8.7',
