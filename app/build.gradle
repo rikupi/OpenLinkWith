@@ -99,6 +99,7 @@ configurations {
   compile.exclude module: 'support-v4'
 }
 
+
 dependencies {
   implementation project(':base-prefs')
   implementation project(':browser-preferred')
@@ -108,7 +109,6 @@ dependencies {
   implementation project(':redirect')
   implementation project(':resolver')
 
-  implementation 'androidx.preference:preference-ktx:1.1.1'
   implementation 'androidx.sharetarget:sharetarget:1.2.0-rc01'
 
   playImplementation platform('com.google.firebase:firebase-bom:33.14.0')

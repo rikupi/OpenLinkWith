@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <!-- Samsung OneUI brand blue -->
-  <color name="oneui_primary">#FF0381FE</color>
-
-  <!-- Theme color aliases -->
-  <color name="theme_primary">@color/oneui_primary</color>
-  <color name="theme_primary_dark">#FF0072DE</color>
-  <color name="theme_accent">@color/oneui_primary</color>
-
-  <!-- OneUI backgrounds (light) -->
-  <color name="window_background">#FFF6F6F6</color>
-  <color name="oneui_card_background">#FFFFFFFF</color>
-  <color name="resolver_background">#FFFFFFFF</color>
-
-  <!-- OneUI text colors (light) -->
-  <color name="oneui_primary_text">#FF010101</color>
-  <color name="oneui_secondary_text">#FF8C8C8C</color>
-
-  <!-- OneUI semantic colors (light) -->
-  <color name="oneui_divider">#14000000</color>
-  <color name="oneui_pref_divider">#FFE8E8E8</color>
-  <color name="oneui_ripple">#0D000000</color>
-  <color name="oneui_error">#FFDB332A</color>
-
-  <!-- Feature toggle background (light) -->
-  <color name="feature_switch_background">#FFEEEEEE</color>
+  <color name="theme_primary">#FF6200EE</color>
+  <color name="theme_primary_dark">#FF3700B3</color>
+  <color name="theme_accent">#FF03DAC5</color>
 </resources>

@@ -35,6 +35,10 @@
     android:theme="@style/Theme.OpenWith"
     tools:ignore="GoogleAppIndexingWarning">
 
+    <meta-data
+      android:name="theming-meta"
+      android:value="meta_998_sesl_app" />
+
     <activity
       android:name=".settings.SettingsActivity"
       android:clearTaskOnLaunch="true"

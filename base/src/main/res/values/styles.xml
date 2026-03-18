@@ -1,38 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <style name="Base.Theme.OpenWith" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-    <!-- Samsung OneUI brand colors -->
-    <item name="colorPrimary">@color/theme_primary</item>
-    <item name="colorPrimaryDark">@color/theme_primary_dark</item>
-    <item name="colorAccent">@color/theme_accent</item>
+  <style name="Base.Theme.OpenWith" parent="OneUITheme" />
 
-    <!-- OneUI window background -->
-    <item name="android:windowBackground">@color/window_background</item>
-
-    <!-- OneUI text colors -->
-    <item name="android:textColorPrimary">@color/oneui_primary_text</item>
-    <item name="android:textColorSecondary">@color/oneui_secondary_text</item>
-
-    <!-- OneUI overscroll edge effect -->
-    <item name="android:colorEdgeEffect">@color/theme_primary</item>
-
-    <!-- Status bar matches window background -->
-    <item name="android:statusBarColor">@color/window_background</item>
-    <item name="android:windowLightStatusBar">@bool/window_light_status_bar</item>
-
-    <!-- Navigation bar matches window background; API 27+ honors light/dark icon tint -->
-    <item name="android:navigationBarColor">@color/window_background</item>
-    <item name="android:windowLightNavigationBar">@bool/window_light_nav_bar</item>
-  </style>
-
-  <!-- Light mode: dark icons/text on light AppBar background -->
-  <style name="ThemeOverlay.OpenWith.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
-    <item name="android:textColorPrimary">@color/oneui_primary_text</item>
-    <item name="colorControlNormal">@color/oneui_primary_text</item>
-  </style>
-
-  <!-- Light mode: popup menu with dark text -->
+  <style name="ThemeOverlay.OpenWith.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar" />
   <style name="ThemeOverlay.OpenWith.PopupMenu" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

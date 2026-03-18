@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <style name="Resolver.ButtonText" parent="@android:style/TextAppearance">
-    <item name="android:textColor">?android:attr/textColorPrimary</item>
-    <item name="android:textSize">15sp</item>
-    <item name="android:textStyle">bold</item>
-  </style>
-
   <style name="BottomSheet.Light" parent="Base.Theme.OpenWith">
     <item name="android:statusBarColor">@android:color/transparent</item>
     <item name="android:navigationBarColor">@android:color/transparent</item>
@@ -14,7 +8,7 @@
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowBackground">@android:color/transparent</item>
     <item name="android:backgroundDimEnabled">true</item>
-    <item name="android:backgroundDimAmount">0.35</item>
+    <item name="android:backgroundDimAmount">0.65</item>
     <item name="android:windowContentOverlay">@null</item>
     <item name="android:windowTranslucentStatus">false</item>
     <item name="android:windowTranslucentNavigation">false</item>

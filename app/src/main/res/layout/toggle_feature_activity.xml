@@ -1,71 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<dev.oneuiproject.oneui.layout.ToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/toolbar_layout"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:orientation="vertical">
+  app:showNavButtonAsBack="true"
+  app:expanded="false">
 
-  <com.google.android.material.appbar.AppBarLayout
+  <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/window_background"
-    android:theme="@style/ThemeOverlay.OpenWith.ActionBar"
-    app:elevation="0dp">
+    android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-      android:id="@+id/toolbar"
+    <FrameLayout
       android:layout_width="match_parent"
       android:layout_height="?actionBarSize"
-      app:popupTheme="@style/ThemeOverlay.OpenWith.PopupMenu" />
+      android:addStatesFromChildren="true"
+      android:foreground="?selectableItemBackground">
 
-  </com.google.android.material.appbar.AppBarLayout>
-
-  <FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="?actionBarSize"
-    android:addStatesFromChildren="true"
-    android:foreground="?selectableItemBackground">
-
-    <View
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:background="@color/feature_switch_background" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-      android:id="@+id/featureToggle"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:paddingLeft="@dimen/keyline_1"
-      android:paddingRight="@dimen/keyline_1"
-      tools:text="Enabled" />
-  </FrameLayout>
-
-  <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="true">
-
-    <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:paddingTop="@dimen/content_padding"
-      android:paddingBottom="@dimen/content_padding">
-
-      <TextView
-        android:id="@+id/featureDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:lineSpacingMultiplier="1.2"
+      <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/featureToggle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:paddingLeft="@dimen/keyline_1"
         android:paddingRight="@dimen/keyline_1"
-        android:paddingBottom="@dimen/content_padding"
-        android:textSize="16sp"
-        tools:text="@string/pref_details_feature_add_to_homescreen" />
+        tools:text="Enabled" />
+    </FrameLayout>
 
+    <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:fillViewport="true">
 
-    </LinearLayout>
-  </ScrollView>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/content_padding"
+        android:paddingBottom="@dimen/content_padding">
 
-</LinearLayout>
+        <TextView
+          android:id="@+id/featureDetails"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:paddingLeft="@dimen/keyline_1"
+          android:paddingRight="@dimen/keyline_1"
+          android:paddingBottom="@dimen/content_padding"
+          tools:text="@string/pref_details_feature_add_to_homescreen" />
+
+      </LinearLayout>
+    </ScrollView>
+  </LinearLayout>
+
+</dev.oneuiproject.oneui.layout.ToolbarLayout>

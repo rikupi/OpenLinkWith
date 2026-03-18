@@ -1,10 +1,6 @@
 package com.tasomaniac.openwith.browser
 
 import android.os.Bundle
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
-import com.tasomaniac.openwith.ui.OneUiListDecoration
 import com.tasomaniac.openwith.HeaderAdapter
 import com.tasomaniac.openwith.SimpleTextViewHolder
 import com.tasomaniac.openwith.browser.databinding.BrowserActivityPreferredAppsBinding
@@ -35,28 +31,14 @@ class PreferredBrowserActivity : DaggerAppCompatActivity(), BrowsersAdapter.List
         val binding = BrowserActivityPreferredAppsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updatePadding(bottom = systemBars.bottom)
-            insets
-        }
-
         analytics.sendScreenView("Browser Apps")
-        setupToolbar()
 
         browserResolver.resolve()
             .subscribeBy(onSuccess = { binding.setupList(it) })
             .addTo(disposable)
     }
 
-    private fun setupToolbar() {
-        setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-    }
-
     private fun BrowserActivityPreferredAppsBinding.setupList(browsers: List<DisplayActivityInfo>) {
-        recyclerView.addItemDecoration(OneUiListDecoration(context, headerCount = 1))
-
         val browsersAdapter = BrowsersAdapter(
             browsers,
             browserPreferences.mode,

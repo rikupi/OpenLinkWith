@@ -3,23 +3,21 @@
   android:id="@+id/link_info"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  android:background="@drawable/rounded_shape"
   android:orientation="vertical"
-  android:paddingLeft="12dp"
-  android:paddingTop="8dp"
-  android:paddingRight="12dp"
-  android:paddingBottom="8dp">
+  android:paddingHorizontal="16dp"
+  android:paddingTop="4dp"
+  android:paddingBottom="12dp">
 
   <TextView
     android:id="@+id/link_url"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/resolver_link_bg"
     android:maxLines="2"
-    android:paddingStart="?attr/listPreferredItemPaddingLeft"
-    android:paddingTop="8dp"
-    android:paddingEnd="?attr/listPreferredItemPaddingRight"
-    android:paddingBottom="8dp"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:textSize="12sp" />
+    android:ellipsize="middle"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="10dp"
+    android:textColor="?android:attr/textColorSecondary"
+    android:textSize="13sp" />
 
 </LinearLayout>

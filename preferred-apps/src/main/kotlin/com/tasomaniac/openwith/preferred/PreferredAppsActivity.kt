@@ -3,14 +3,9 @@ package com.tasomaniac.openwith.preferred
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.View
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.postDelayed
-import androidx.core.view.updatePadding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.tasomaniac.openwith.ui.OneUiListDecoration
 import com.tasomaniac.openwith.HeaderAdapter
 import com.tasomaniac.openwith.SimpleTextViewHolder
 import com.tasomaniac.openwith.data.Analytics
@@ -44,18 +39,7 @@ class PreferredAppsActivity : DaggerAppCompatActivity(), ItemClickListener, AppR
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preferred_apps)
 
-        val rootView = findViewById<View>(android.R.id.content)
-        ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updatePadding(bottom = systemBars.bottom)
-            insets
-        }
-
-        setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.addItemDecoration(OneUiListDecoration(this, headerCount = 1))
         adapter.itemClickListener = this
         recyclerView.adapter = wrapWithHeader(adapter)
 

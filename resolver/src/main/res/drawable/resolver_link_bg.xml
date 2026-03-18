@@ -2,9 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
   android:shape="rectangle">
 
-  <solid android:color="@color/resolver_background" />
-  <corners
-    android:topLeftRadius="26dp"
-    android:topRightRadius="26dp" />
+  <solid android:color="@color/resolver_link_bg" />
+  <corners android:radius="16dp" />
 
 </shape>

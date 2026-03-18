@@ -8,6 +8,7 @@ out/
 
 release.keystore
 google-services.json
+github.properties
 play-service-account.json
 iam-key.json
 fastlane/report.xml
@@ -17,6 +18,7 @@ release.signing
 *.apk
 app/*/release
 .kotlin
+oneui-design/
 
 
 # IDEA/Android Studio ignores

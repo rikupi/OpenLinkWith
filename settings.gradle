@@ -19,6 +19,36 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+
+        def githubProperties = new Properties()
+        def ghPropsFile = file("github.properties")
+        if (ghPropsFile.exists()) {
+            ghPropsFile.withInputStream { githubProperties.load(it) }
+        }
+        def ghUsername = githubProperties.getProperty("ghUsername") ?: ""
+        def ghAccessToken = githubProperties.getProperty("ghAccessToken") ?: ""
+
+        maven {
+            url = uri("https://maven.pkg.github.com/tribalfs/sesl-androidx")
+            credentials {
+                username = ghUsername
+                password = ghAccessToken
+            }
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/tribalfs/sesl-material-components-android")
+            credentials {
+                username = ghUsername
+                password = ghAccessToken
+            }
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/tribalfs/oneui-design")
+            credentials {
+                username = ghUsername
+                password = ghAccessToken
+            }
+        }
     }
 }
 

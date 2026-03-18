@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-/*
-* Copyright 2012, The Android Open Source Project
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
--->
+<?xml version="1.0" encoding="utf-8"?>
 <com.tasomaniac.openwith.resolver.ResolverDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:id="@+id/contentPanel"
@@ -24,29 +8,40 @@
   app:maxCollapsedHeightSmall="56dp"
   app:resolverMaxWidth="@dimen/resolver_max_width">
 
-  <include layout="@layout/resolver_link_info" />
-
+  <!-- Drag handle + link info area -->
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/resolver_background"
-    android:elevation="8dp"
+    android:background="@drawable/rounded_shape"
+    android:orientation="vertical"
     app:layout_alwaysShow="true">
 
+    <!-- Drag handle -->
+    <View
+      android:layout_width="36dp"
+      android:layout_height="4dp"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="4dp"
+      android:background="@drawable/resolver_drag_handle" />
+
+    <include layout="@layout/resolver_link_info" />
+
+    <!-- Title -->
     <TextView
       android:id="@+id/title"
-      android:layout_width="0dp"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_weight="1"
       android:gravity="start|center_vertical"
-      android:minHeight="56dp"
-      android:paddingBottom="8dp"
-      android:paddingEnd="?attr/listPreferredItemPaddingRight"
-      android:paddingStart="?attr/listPreferredItemPaddingLeft"
-      android:paddingTop="8dp"
-      android:textAppearance="?android:attr/textAppearanceMedium" />
+      android:minHeight="48dp"
+      android:paddingHorizontal="24dp"
+      android:paddingVertical="8dp"
+      android:textColor="?android:attr/textColorPrimary"
+      android:textSize="16sp"
+      android:textStyle="bold" />
   </LinearLayout>
 
+  <!-- App list -->
   <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/resolver_list"
     android:layout_width="match_parent"
@@ -54,49 +49,53 @@
     android:background="@color/resolver_background"
     android:clipToPadding="false"
     android:divider="@null"
-    android:elevation="8dp"
+    android:paddingBottom="8dp"
     android:scrollbarStyle="outsideOverlay"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     android:orientation="vertical" />
 
+  <!-- Action buttons -->
   <LinearLayout
     android:id="@+id/button_bar"
-    style="?attr/buttonBarStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/resolver_background"
-    android:elevation="8dp"
-    android:gravity="end|center_vertical"
-    android:measureWithLargestChild="true"
+    android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingStart="12dp"
-    android:paddingEnd="12dp"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp"
     android:visibility="gone"
     app:layout_alwaysShow="true"
     app:layout_ignoreOffset="true">
 
     <Button
       android:id="@+id/button_once"
-      style="?attr/buttonBarNegativeButtonStyle"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="start"
-      android:layout_marginEnd="8dp"
+      style="?attr/buttonBarButtonStyle"
+      android:layout_width="0dp"
+      android:layout_height="48dp"
+      android:layout_weight="1"
       android:enabled="false"
-      android:maxLines="2"
-      android:minHeight="@dimen/alert_dialog_button_bar_height"
-      android:text="@string/activity_resolver_use_once" />
+      android:text="@string/activity_resolver_use_once"
+      android:textAllCaps="false"
+      android:textAppearance="@style/Resolver.ButtonText" />
+
+    <!-- Vertical separator between buttons -->
+    <View
+      android:layout_width="1dp"
+      android:layout_height="20dp"
+      android:layout_marginHorizontal="4dp"
+      android:background="@color/resolver_divider" />
 
     <Button
       android:id="@+id/button_always"
-      style="?attr/buttonBarPositiveButtonStyle"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="end"
+      style="?attr/buttonBarButtonStyle"
+      android:layout_width="0dp"
+      android:layout_height="48dp"
+      android:layout_weight="1"
       android:enabled="false"
-      android:maxLines="2"
-      android:minHeight="@dimen/alert_dialog_button_bar_height"
-      android:text="@string/activity_resolver_use_always" />
+      android:text="@string/activity_resolver_use_always"
+      android:textAllCaps="false"
+      android:textAppearance="@style/Resolver.ButtonText" />
   </LinearLayout>
 
 </com.tasomaniac.openwith.resolver.ResolverDrawerLayout>

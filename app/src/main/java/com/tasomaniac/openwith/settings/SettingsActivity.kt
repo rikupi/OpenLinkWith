@@ -3,9 +3,6 @@ package com.tasomaniac.openwith.settings
 import android.app.backup.BackupManager
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
 import androidx.fragment.app.commit
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -29,13 +26,6 @@ class SettingsActivity :
 
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
-
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updatePadding(bottom = systemBars.bottom)
-            insets
-        }
 
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
@@ -48,7 +38,7 @@ class SettingsActivity :
 
     override fun setTitle(titleId: Int) {
         super.setTitle(titleId)
-        binding.collapsingToolbar.title = getString(titleId)
+        binding.toolbarLayout.setTitle(getString(titleId))
     }
 
     override fun onResume() {
@@ -63,7 +53,7 @@ class SettingsActivity :
 
     override fun onPreferenceStartFragment(caller: PreferenceFragmentCompat, pref: Preference): Boolean {
         supportFragmentManager.commit {
-            val fragment = supportFragmentManager.fragmentFactory.instantiate(classLoader, pref.fragment)
+            val fragment = supportFragmentManager.fragmentFactory.instantiate(classLoader, pref.fragment ?: return false)
             replace(R.id.fragment_container, fragment)
             addToBackStack(null)
         }

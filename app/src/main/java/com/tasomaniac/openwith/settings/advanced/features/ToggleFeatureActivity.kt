@@ -5,9 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.core.text.parseAsHtml
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
 import androidx.preference.Preference
 import com.tasomaniac.openwith.data.Analytics
 import com.tasomaniac.openwith.databinding.ToggleFeatureActivityBinding
@@ -23,18 +20,11 @@ class ToggleFeatureActivity : DaggerAppCompatActivity() {
     @Inject lateinit var sideEffects: Set<@JvmSuppressWildcards FeatureToggleSideEffect>
     private lateinit var binding: ToggleFeatureActivityBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ToggleFeatureActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updatePadding(bottom = systemBars.bottom, top = systemBars.top)
-            insets
-        }
 
         val feature = intent.featureKey.toFeature()
         setupInitialState(feature)
@@ -64,9 +54,7 @@ class ToggleFeatureActivity : DaggerAppCompatActivity() {
     }
 
     private fun setupTitle(feature: Feature) {
-        setSupportActionBar(binding.toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        setTitle(feature.titleRes)
+        binding.toolbarLayout.setTitle(getString(feature.titleRes))
     }
 
     private fun setupDetails(feature: Feature) {
