@@ -42,10 +42,10 @@ android {
   namespace 'com.tasomaniac.openwith'
 
   defaultConfig {
-    applicationId 'com.samleatherdale.openwith'
+    applicationId 'com.rikupi.openwith'
     versionCode versions.versionCode
     versionName versions.versionName
-    resourceConfigurations += ['ar', 'de', 'en', 'es', 'fi', 'fr', 'hi', 'hr', 'in', 'it', 'iw', 'ja', 'ko', 'nl', 'pl', 'pt-rBR', 'pt-rPT', 'ru', 'sv', 'tr', 'uk', 'vi', 'zh-rCN', 'zh-rTW']
+    resourceConfigurations += ['en', 'ja', 'ko']
 
   }
 
@@ -87,7 +87,6 @@ android {
   flavorDimensions 'store'
   productFlavors {
     floss {
-      applicationIdSuffix '.floss'
       versionNameSuffix '-floss'
     }
     play {}
